@@ -1,0 +1,48 @@
+# Credenciales y Secretos — NUNCA SUBIR
+.env
+wallet/
+
+# Entornos virtuales
+.venv/
+.venv310/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Datos grandes
+data/
+*.zip
+*.csv
+*.json
+
+# Mantener modelos (excepto el gigante)
+!models/*.pkl
+!models/*.json
+
+# Modelo demasiado grande para GitHub (>100MB) - DEBE IR DESPUÉS para que prevalezca
+models/rf_calibrated.pkl
+
+# Nota: El usuario pidió subir modelos, notebook y readme.
+# Excluimos manualmenten los datasets pesados si es necesario.
+
+# Jupyter Notebook y Outputs pesados
+.ipynb_checkpoints
+WC2026_ML.html
+
+# Scripts internos / Utilidades
+create_notebook.py
+extract_detailed.py
+extract_info.py
+extract_more.py
+final_extract.py
+
+# Archivos de análisis intermedios
+analysis_output.txt
+part1.txt
+transcripcion_reto.txt
+CLAUDE_CODE_MAX_OUTPUT_TOKENS=64000.txt
+
+# Metadatos de herramientas
+.claude/
+.gemini/
+.antigravity/
