@@ -25,9 +25,8 @@ models/rf_calibrated.pkl
 # Nota: El usuario pidió subir modelos, notebook y readme.
 # Excluimos manualmenten los datasets pesados si es necesario.
 
-# Jupyter Notebook y Outputs pesados
+# Jupyter Notebook
 .ipynb_checkpoints
-WC2026_ML.html
 
 # Scripts internos / Utilidades
 create_notebook.py
