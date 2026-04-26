@@ -15,11 +15,13 @@ data/
 *.csv
 *.json
 
-# Mantener modelos (excepto el gigante)
+# Mantener modelos (excepto el ensamblado final)
 !models/*.pkl
 !models/*.json
+!models/*.part??
 
-# Modelo demasiado grande para GitHub (>100MB) - DEBE IR DESPUÉS para que prevalezca
+# rf_calibrated.pkl supera el límite de 100 MB de GitHub — se distribuye en partes
+# Para reconstruirlo localmente: ver instrucciones en README (sección "Modelos serializados")
 models/rf_calibrated.pkl
 
 # Nota: El usuario pidió subir modelos, notebook y readme.

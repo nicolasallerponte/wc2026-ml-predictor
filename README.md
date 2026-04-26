@@ -689,6 +689,26 @@ paso5/
 └── README.md                # Este archivo
 ```
 
+### Modelos serializados
+
+Los modelos entrenados se incluyen en `models/` para que el notebook pueda cargarlos sin reentrenar desde cero (~10 min en CPU).
+
+**Por qué `rf_calibrated.pkl` está dividido en partes:**  
+GitHub rechaza archivos >100 MB. El Random Forest calibrado ocupa 196 MB porque almacena los ~300 árboles completos con sus nodos. Para incluirlo en el repositorio se divide en tres partes (`rf_calibrated.pkl.part00/01/02`) que se reensamblan con:
+
+```python
+# Reconstruir rf_calibrated.pkl desde las partes (ejecutar una sola vez)
+import os
+parts = sorted(f for f in os.listdir("models") if f.startswith("rf_calibrated.pkl.part"))
+with open("models/rf_calibrated.pkl", "wb") as out:
+    for p in parts:
+        with open(f"models/{p}", "rb") as f:
+            out.write(f.read())
+print("rf_calibrated.pkl reconstruido.")
+```
+
+El notebook detecta automáticamente si el archivo ensamblado existe; si no, vuelve a calibrar el RF durante la ejecución (sección 8).
+
 ---
 
 ## 15. Cómo Reproducir
